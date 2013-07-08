@@ -26,5 +26,7 @@
   (let [ch (l/wait-for-result
                (tcp/tcp-client {:host "localhost",
                                 :port 10000,
-                                :frame (string :utf-8 :delimiters ["\n"])})])
-    (l/receive-all ch f)
+                                :frame (string :utf-8 :delimiters ["\n"])}))]
+    (l/receive-all ch 
+                   (fn [msg]
+                     (l/enqueue ch (f msg))))))
