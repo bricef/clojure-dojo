@@ -1,0 +1,7 @@
+(ns chinese-whispers.core-test
+  (:use clojure.test
+        chinese-whispers.core))
+
+(deftest a-test
+  (testing "FIXME, I fail."
+    (is (= 0 1))))
